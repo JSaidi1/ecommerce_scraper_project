@@ -1,5 +1,6 @@
 from quotes_scraper_project.config.settings import minio_config
-from quotes_scraper_project.etl.extract.scraper import QuotesScraper
+#from quotes_scraper_project.etl.extract.scraper import QuotesScraper
+from quotes_scraper_project.utils.util_logs import write_log
 
 def main():
     print("-> in main")
@@ -13,7 +14,7 @@ if __name__ == "__main__":
     # print(minio_config.endpoint)
 
     # === call QuotesScraper:
-    quotes_scraper_obj = QuotesScraper()
+    #quotes_scraper_obj = QuotesScraper()
     # -- Attribute
     # print(quotes_scraper_obj.base_url)
     # -- scrape_quotes_page()
@@ -38,20 +39,24 @@ if __name__ == "__main__":
     # -- get_available_tags()
     # print(quotes_scraper_obj.get_available_tags())# *****must be more than 10. (misattributed-mark-twain)
     # -- scrape_complete()
-    complete_scrape = quotes_scraper_obj.scrape_complete()
-    quotes = complete_scrape['quotes']
-    authors = complete_scrape['authors']
-    cpt = 1
-    for quote in quotes:
-        print(f"======= Quote {cpt} =======")
-        print(quote)
-        cpt += 1
-    for author in authors:
-        print(f"======= author {cpt} =======")
-        print(author)
-        cpt += 1
-    # -- close():
-    quotes_scraper_obj.close()
+    # complete_scrape = quotes_scraper_obj.scrape_complete()
+    # quotes = complete_scrape['quotes']
+    # authors = complete_scrape['authors']
+    # cpt = 1
+    # for quote in quotes:
+    #     print(f"======= Quote {cpt} =======")
+    #     print(quote)
+    #     cpt += 1
+    # for author in authors:
+    #     print(f"======= author {cpt} =======")
+    #     print(author)
+    #     cpt += 1
+    # # -- close():
+    # quotes_scraper_obj.close()
+
+    #-----
+    write_log("infoo", "log msg")
+
 
 
 
